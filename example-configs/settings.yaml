@@ -1,0 +1,23 @@
+app:
+  show_header: True
+  show_source: True
+  show_distances: True
+protocols:
+  - ftp
+  - http
+  - https
+  - rsync
+arches:
+  - x86_64
+  - i386
+  - source
+repos:
+  foorepo-centos7: /stable/CentOS/5/@arch@/
+  foorepo-centos7-debuginfo: /stable/CentOS/5/@arch@/debuginfo/
+  foorepo-centos7-source: /stable/CentOS/5/SRPMS/
+  foorepo-centos7-testing: /testing/CentOS/5/@arch@/
+  foorepo-centos7-testing-debuginfo: /testing/CentOS/5/@arch@/debuginfo/
+  foorepo-centos7-testing-source: /testing/CentOS/5/SRPMS/
+  foorepo-centos7-archive: /archive/CentOS/5/@arch@/
+  foorepo-centos7-archive-debuginfo: /archive/CentOS/5/@arch@/debuginfo/
+  foorepo-centos7-archive-source: /archive/CentOS/5/SRPMS/
