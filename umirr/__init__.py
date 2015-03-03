@@ -10,11 +10,11 @@ application = falcon.API()
 main_resource = MainResource()
 application.add_route('/', main_resource)
 
-# simple resources to expose application settings
+# expose application settings
 settings_resource = SettingsResource(settings)
 application.add_route('/settings', settings_resource)
 
-# simple resource to expose mirror data
+# expose mirror data
 mirrors_resource = MirrorsResource(settings, mirrors)
 application.add_route('/mirrors', mirrors_resource)
 

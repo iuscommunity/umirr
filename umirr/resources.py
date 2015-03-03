@@ -11,7 +11,7 @@ class MainResource:
 
 
 class SettingsResource:
-    ''' Simple resources to expose application settings. '''
+    ''' Expose application settings. '''
     def __init__(self, settings):
         self.settings = settings
 
@@ -21,7 +21,7 @@ class SettingsResource:
 
 
 class MirrorsResource:
-    ''' Simple resource to expose mirror data. '''
+    ''' Expose mirror data. '''
     def __init__(self, settings, mirrors):
         self.mirrors = copy.deepcopy(mirrors)
         if settings.get('mirrors').get('hide_owners'):
