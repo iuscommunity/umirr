@@ -1,6 +1,7 @@
 import math
 
-def get_distance(coordinate1, coordinate2):
+
+def calculate_distance(coordinate1, coordinate2):
     a = {}
     b = {}
     a['latitude'], a['longitude'] = coordinate1

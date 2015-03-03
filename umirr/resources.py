@@ -1,7 +1,7 @@
 import json
 import six
 import falcon
-from .utils import get_distance
+from .utils import calculate_distance
 
 
 class SettingsResource:
@@ -42,7 +42,7 @@ class MirrorListResource:
             if resource:
                 dst = (data.get('coordinates').get('latitude'),
                        data.get('coordinates').get('longitude'))
-                distance = get_distance(src, dst)
+                distance = calculate_distance(src, dst)
                 path = self.settings_data.get('repos').get(repo)
                 url = '{}://{}/{}/{}/'.format(protocol,
                                               host,
