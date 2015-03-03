@@ -16,7 +16,6 @@ class SettingsResource:
         self.settings = settings
 
     def on_get(self, req, resp):
-        resp.status = falcon.HTTP_200
         resp.body = json.dumps(self.settings)
 
 
@@ -30,7 +29,6 @@ class MirrorsResource:
                 del self.mirrors[host]['contact']
 
     def on_get(self, req, resp):
-        resp.status = falcon.HTTP_200
         resp.body = json.dumps(self.mirrors)
 
 
@@ -99,6 +97,5 @@ class MirrorListResource:
         else:
             for distance, host, url in mirrors:
                 output.append(url)
-        resp.status = falcon.HTTP_200
         resp.content_type = 'text/plain'
         resp.body = '\n'.join(output)
