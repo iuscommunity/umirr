@@ -107,8 +107,6 @@ class MirrorListResource:
             output.extend(self.get_title_text())
         if self.settings.get('mirrorlist').get('show_source'):
             output.extend(self.get_source_text())
-        src = (req.get_header('X-Forwarded-For-Latitude'),
-               req.get_header('X-Forwarded-For-Longitude'))
         mirrors = self.find_mirrors(repo, arch, protocol, src)
         if self.settings.get('mirrorlist').get('show_distances'):
             msg = ['# approximate distances:']
