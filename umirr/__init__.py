@@ -1,9 +1,14 @@
 import falcon
-from .resources import SettingsResource, MirrorsResource, MirrorListResource
 from .config import settings, mirrors
+from .resources import MainResource, SettingsResource, MirrorsResource, \
+    MirrorListResource
 
 
 application = falcon.API()
+
+# home page
+main_resource = MainResource()
+application.add_route('/', main_resource)
 
 # simple resources to expose application settings
 settings_resource = SettingsResource(settings)
@@ -13,7 +18,6 @@ application.add_route('/settings', settings_resource)
 mirrors_resource = MirrorsResource(mirrors)
 application.add_route('/mirrors', mirrors_resource)
 
-# the main resource
+# generate the list of mirrors
 mirrorlist_resource = MirrorListResource(settings, mirrors)
 application.add_route('/mirrorlist', mirrorlist_resource)
-application.add_route('/', mirrorlist_resource)

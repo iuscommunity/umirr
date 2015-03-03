@@ -4,6 +4,11 @@ import falcon
 from .utils import calculate_distance
 
 
+class MainResource:
+    def on_get(self, req, resp):
+        resp.body = '<html><h1>umirr</h1><h2>mirco mirror service</h2></html>'
+
+
 class SettingsResource:
     ''' Simple resources to expose application settings. '''
     def __init__(self, settings):
