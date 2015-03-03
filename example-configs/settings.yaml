@@ -8,7 +8,7 @@ arches:
   - i386
   - source
 mirrorlist:
-  show_header: True
+  show_title: True
   show_source: True
   show_distances: True
 mirrors:
