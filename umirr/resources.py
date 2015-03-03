@@ -97,6 +97,13 @@ class MirrorListResource:
         msg = '# ordered for {}, {} {} ({})'.format(city, region, country, src)
         return [msg, '#']
 
+    def get_distance_text(self, distance_data):
+        msg = ['# approximate distances in miles:']
+        for distance, host in distance_data:
+            padded = str(round(distance)).rjust(9)
+            msg.append('# {} - {}'.format(padded, host))
+        msg.append('#')
+
     def on_get(self, req, resp):
         repo, arch, protocol, src = self.validate(req)
         distance_data = self.get_distance_data(protocol, src)
@@ -108,16 +115,8 @@ class MirrorListResource:
         if self.settings.get('mirrorlist').get('show_source'):
             output.extend(self.get_source_text())
         if self.settings.get('mirrorlist').get('show_distances'):
-            msg = ['# approximate distances:']
-            urls = []
-            for distance, host, url in mirrors:
-                msg.append('#    {} - {} miles away'.format(host, distance))
-                urls.append(url)
-            output.extend(msg)
-            output.append('#')
-            output.extend(urls)
-        else:
-            for distance, host, url in mirrors:
-                output.append(url)
+            output.extend(self.get_distance_text(distance_data))
+
+        output.extend(urls)
         resp.content_type = 'text/plain'
         resp.body = '\n'.join(output)
