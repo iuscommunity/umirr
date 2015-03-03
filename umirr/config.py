@@ -1,18 +1,19 @@
 import yaml
 
 
-settings_paths = ['./settings.yaml', '/etc/umirr/settings.yaml']
-mirrors_paths = ['./mirrors.yaml', '/etc/umirr/mirrors.yaml']
-
-def loader(paths):
-    data = ''
+def load(paths):
+    ''' Read first file in paths that exists and return parsed data. '''
     for path in paths:
         try:
             with open(path) as f:
-                data += f.read()
-        except:
-            pass
-    return yaml.load(data)
+                return yaml.load(f.read())
+        except FileNotFoundError:
+            continue
+    else:
+        msg = ['Error starting application.  One of these must exist:']
+        msg.extend(['    ' + path for path in paths])
+        raise SystemExit('\n'.join(msg))
 
-settings_data = loader(settings_paths)
-mirrors_data = loader(mirrors_paths)
+
+settings = load(['./settings.yaml', '/etc/umirr/settings.yaml'])
+mirrors = load(['./mirrors.yaml', '/etc/umirr/mirrors.yaml'])
