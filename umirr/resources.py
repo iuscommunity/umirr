@@ -36,9 +36,8 @@ class MirrorListResource:
     ''' Generate list of mirrors relative to requestor's location. '''
     def __init__(self, settings, mirrors):
         self.settings = settings
-        self.mirrors = {host: data
-                             for host, data in six.iteritems(mirrors)
-                             if data.get('enabled')}
+        self.mirrors = {host: data for host, data in six.iteritems(mirrors)
+                        if data.get('enabled')}
 
     def find_mirrors(self, repo, arch, protocol, src):
         mirrorlist = []
