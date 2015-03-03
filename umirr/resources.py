@@ -7,6 +7,7 @@ from .utils import calculate_distance
 
 class MainResource:
     def on_get(self, req, resp):
+        resp.content_type = 'text/html'
         resp.body = '<html><h1>umirr</h1><h2>mirco mirror service</h2></html>'
 
 
