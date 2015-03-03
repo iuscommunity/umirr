@@ -11,6 +11,8 @@ arches:
   - x86_64
   - i386
   - source
+mirrors:
+  hide_owners: True
 repos:
   foorepo-centos7: /stable/CentOS/5/@arch@/
   foorepo-centos7-debuginfo: /stable/CentOS/5/@arch@/debuginfo/

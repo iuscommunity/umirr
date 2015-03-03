@@ -1,3 +1,4 @@
+import copy
 import json
 import six
 import falcon
@@ -21,15 +22,16 @@ class SettingsResource:
 
 class MirrorsResource:
     ''' Simple resource to expose mirror data. '''
-    def __init__(self, mirrors):
-        for host in mirrors:
-            del mirrors[host]['owner']
-            del mirrors[host]['contact']
-        self.clean_mirrors = mirrors
+    def __init__(self, settings, mirrors):
+        self.mirrors = copy.deepcopy(mirrors)
+        if settings.get('mirrors').get('hide_owners'):
+            for host in self.mirrors:
+                del self.mirrors[host]['owner']
+                del self.mirrors[host]['contact']
 
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200
-        resp.body = json.dumps(self.clean_mirrors)
+        resp.body = json.dumps(self.mirrors)
 
 
 class MirrorListResource:
