@@ -10,14 +10,17 @@ main:
 # Settings specific to MirrorsResource.
 mirrors:
   route: /mirrors
+  # Hide contact name and email address.
   hide_owners: True
 
 # Settings specific to MirrorListResource.
 mirrorlist:
   route: /mirrorlist
+  # These show_* options control the comments at the top of the output.
   show_title: True
   show_source: True
   show_distances: True
+  # Fallback location to use if the geo headers aren't found.
   fallback:
     city: San Antonio
     region: TX
@@ -25,15 +28,18 @@ mirrorlist:
     coordinates:
       latitude: 29.42575
       longitude: -98.48630
+  # List of valid protocols.  The first one is the default.
   protocols:
     - http
     - https
     - rsync
     - ftp
+  # List of valid architectures.  There is no default (required parameter).
   architectures:
     - x86_64
     - i386
     - source
+  # Dictionary of valid repos.  There is no default (required parameter).
   repos:
     foorepo-centos7: /stable/CentOS/5/@arch@/
     foorepo-centos7-debuginfo: /stable/CentOS/5/@arch@/debuginfo/
