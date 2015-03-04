@@ -5,16 +5,19 @@
 
 # Settings specific to MainResource.
 main:
+  enabled: True
   route: /
 
 # Settings specific to MirrorsResource.
 mirrors:
+  enabled: True
   route: /mirrors
   # Hide contact name and email address.
   hide_owners: True
 
 # Settings specific to MirrorListResource.
 mirrorlist:
+  enabled: True
   route: /mirrorlist
   # These show_* options control the comments at the top of the output.
   show_title: True
