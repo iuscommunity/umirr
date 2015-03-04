@@ -11,15 +11,6 @@ class MainResource:
         resp.body = '<html><h1>umirr</h1><h2>mirco mirror service</h2></html>'
 
 
-class SettingsResource:
-    ''' Expose application settings. '''
-    def __init__(self, settings):
-        self.settings = settings
-
-    def on_get(self, req, resp):
-        resp.body = json.dumps(self.settings, indent=4)
-
-
 class MirrorsResource:
     ''' Expose mirror data. '''
     def __init__(self, settings, mirrors):
