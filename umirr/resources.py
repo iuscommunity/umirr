@@ -17,7 +17,7 @@ class SettingsResource:
         self.settings = settings
 
     def on_get(self, req, resp):
-        resp.body = json.dumps(self.settings)
+        resp.body = json.dumps(self.settings, indent=4)
 
 
 class MirrorsResource:
@@ -30,7 +30,7 @@ class MirrorsResource:
                 del self.mirrors[host]['contact']
 
     def on_get(self, req, resp):
-        resp.body = json.dumps(self.mirrors)
+        resp.body = json.dumps(self.mirrors, indent=4)
 
 
 class MirrorListResource:
