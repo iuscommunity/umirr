@@ -43,13 +43,13 @@ class MirrorListResource:
     def validate_query(self, req):
         ''' Parse query parameters and validate them. '''
         valid_repos = self.settings.get('repos')
-        valid_arches = self.settings.get('arches')
+        valid_architectures = self.settings.get('architectures')
         valid_protocols = self.settings.get('protocols')
         repo = req.get_param('repo', required=True)
         if repo not in valid_repos:
             raise falcon.HTTPInvalidParam('({})'.format(repo), 'repo')
         arch = req.get_param('arch', required=True)
-        if arch not in valid_arches:
+        if arch not in valid_architectures:
             raise falcon.HTTPInvalidParam('({})'.format(arch), 'arch')
         protocol = req.get_param('protocol') or valid_protocols[0]
         if protocol not in valid_protocols:

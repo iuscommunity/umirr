@@ -3,7 +3,7 @@ protocols:
   - https
   - rsync
   - ftp
-arches:
+architectures:
   - x86_64
   - i386
   - source
