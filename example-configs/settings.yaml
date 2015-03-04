@@ -1,5 +1,15 @@
-# Settings specific to the '/mirrorlist' resource.
+# Settings specific to MainResource.
+main:
+  route: /
+
+# Settings specific to MirrorsResource.
+mirrors:
+  route: /mirrors
+  hide_owners: True
+
+# Settings specific to MirrorListResource.
 mirrorlist:
+  route: /mirrorlist
   show_title: True
   show_source: True
   show_distances: True
@@ -29,7 +39,3 @@ mirrorlist:
     foorepo-centos7-archive: /archive/CentOS/5/@arch@/
     foorepo-centos7-archive-debuginfo: /archive/CentOS/5/@arch@/debuginfo/
     foorepo-centos7-archive-source: /archive/CentOS/5/SRPMS/
-
-# Settings specific to the '/mirrors' resource.
-mirrors:
-  hide_owners: True
