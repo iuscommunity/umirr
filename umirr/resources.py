@@ -40,8 +40,8 @@ class MirrorListResource:
         self.mirrors = {host: data for host, data in six.iteritems(mirrors)
                         if data.get('enabled')}
 
-    def validate(self, req):
-        ''' Parse request parameters and validate them. '''
+    def validate_query(self, req):
+        ''' Parse query parameters and validate them. '''
         valid_repos = self.settings.get('repos')
         valid_arches = self.settings.get('arches')
         valid_protocols = self.settings.get('protocols')
@@ -104,7 +104,7 @@ class MirrorListResource:
         return msg
 
     def on_get(self, req, resp):
-        repo, arch, protocol, src = self.validate(req)
+        repo, arch, protocol, src = self.validate_query(req)
         distance_data = self.get_distance_data(protocol, src)
         urls = self.get_urls(distance_data, repo, arch, protocol)
 
