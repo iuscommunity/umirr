@@ -1,3 +1,8 @@
+### WARNING ###
+# This is a yaml file.  Empty lines and comments are fine, but it is important
+# to preserve the indentation structure of the keys.  Syntax errors will
+# prevent the umirr service from starting.
+
 # Settings specific to MainResource.
 main:
   route: /
