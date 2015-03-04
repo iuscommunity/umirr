@@ -54,12 +54,26 @@ class MirrorListResource:
         protocol = req.get_param('protocol') or valid_protocols[0]
         if protocol not in valid_protocols:
             raise falcon.HTTPInvalidParam('({})'.format(protocol), 'protocol')
+        return repo, arch, protocol
+
+    def get_source_info(self, req):
+        ip = req.get_header('X-Forwarded-For').split(',')[0]
         src = (req.get_header('X-Forwarded-For-Latitude'),
                req.get_header('X-Forwarded-For-Longitude'))
         if None in src:
-            # coordinates are missing, set the source to center of the U.S.
-            src = (39.0, -98.0)
-        return repo, arch, protocol, src
+            found = False
+            fallback = self.settings.get('mirrorlist').get('fallback')
+            src = (fallback.get('coordinates').get('latitude'),
+                   fallback.get('coordinates').get('longitude'))
+            name = (fallback.get('city'),
+                    fallback.get('region'),
+                    fallback.get('country'))
+        else:
+            found = True
+            name = (req.get_header('X-Forwarded-For-City'),
+                    req.get_header('X-Forwarded-For-Region'),
+                    req.get_header('X-Forwarded-For-Country'))
+        return src, {'ip': ip, 'name': name, 'found': found}
 
     def get_distance_data(self, protocol, src):
         ''' Return a sorted list of (distance, host) tuples. '''
@@ -104,15 +118,15 @@ class MirrorListResource:
         return msg
 
     def on_get(self, req, resp):
-        repo, arch, protocol, src = self.validate_query(req)
-        distance_data = self.get_distance_data(protocol, src)
-        urls = self.get_urls(distance_data, repo, arch, protocol)
-
+        repo, arch, protocol = self.validate_query(req)
         output = []
         if self.settings.get('mirrorlist').get('show_title'):
             output.extend(self.get_title_text())
+        src, info = self.get_source_info(req)
         if self.settings.get('mirrorlist').get('show_source'):
-            output.extend(self.get_source_text(req))
+            output.extend(self.get_source_text(src, **info))
+        distance_data = self.get_distance_data(protocol, src)
+        urls = self.get_urls(distance_data, repo, arch, protocol)
         if self.settings.get('mirrorlist').get('show_distances'):
             output.extend(self.get_distance_text(distance_data))
 
