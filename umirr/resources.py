@@ -115,7 +115,7 @@ class MirrorListResource:
         if self.settings.get('mirrorlist').get('show_title'):
             output.extend(self.get_title_text())
         if self.settings.get('mirrorlist').get('show_source'):
-            output.extend(self.get_source_text())
+            output.extend(self.get_source_text(req))
         if self.settings.get('mirrorlist').get('show_distances'):
             output.extend(self.get_distance_text(distance_data))
 
