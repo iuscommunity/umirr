@@ -1,3 +1,8 @@
+### WARNING ###
+# This is a yaml file.  Empty lines and comments are fine, but it is important
+# to preserve the indentation structure of the keys.  Syntax errors will
+# prevent the umirr service from starting.
+
 dfw.mirror.foorepo.com:
   enabled: True
   owner: Foo Bar
@@ -10,6 +15,7 @@ dfw.mirror.foorepo.com:
   coordinates:
     latitude: 32.703
     longitude: -96.819
+
 lon.mirror.foorepo.com:
   enabled: False
   owner: Foo Bar
@@ -22,6 +28,7 @@ lon.mirror.foorepo.com:
   coordinates:
     latitude: 51.51
     longitude: -0.13
+
 mirror.danville.org:
   enabled: True
   owner: Heinz Doofenshmirtz
