@@ -11,6 +11,13 @@ mirrorlist:
   show_title: True
   show_source: True
   show_distances: True
+  fallback:
+    city: San Antonio
+    region: TX
+    country: US
+    coordinates:
+      latitude: 29.42575
+      longitude: -98.48630
 mirrors:
   hide_owners: True
 repos:
