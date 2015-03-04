@@ -77,7 +77,7 @@ class MirrorListResource:
         ''' Generate the url paths from the sorted mirror data. '''
         urls = []
         for distance, host in distance_data:
-            data = self.mirrors.get('host')
+            data = self.mirrors.get(host)
             resource = data.get('resources').get(protocol)
             path = self.settings.get('repos').get(repo)
             url = '{}://{}/{}/{}/'.format(protocol,
