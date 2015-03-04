@@ -3,10 +3,10 @@
 # to preserve the indentation structure of the keys.  Syntax errors will
 # prevent the umirr service from starting.
 
-dfw.mirror.foorepo.com:
+dfw.example.com:
   enabled: True
-  owner: Foo Bar
-  contact: admin@foorepo.com
+  owner: George Washington
+  contact: admin@example.com
   resources:
     ftp: /
     http: /
@@ -16,10 +16,10 @@ dfw.mirror.foorepo.com:
     latitude: 32.703
     longitude: -96.819
 
-lon.mirror.foorepo.com:
-  enabled: False
-  owner: Foo Bar
-  contact: admin@foorepo.com
+lon.example.com:
+  enabled: True
+  owner: Martha Washington
+  contact: admin@example.com
   resources:
     ftp: /
     http: /
@@ -29,12 +29,13 @@ lon.mirror.foorepo.com:
     latitude: 51.51
     longitude: -0.13
 
-mirror.danville.org:
+doofenshmirtzevilincorporated.info:
   enabled: True
   owner: Heinz Doofenshmirtz
-  contact: heinz.doofenshmirtz@danville.org
+  contact: drdoof@doofenshmirtzevilincorporated.info
   resources:
-    http: /foorepo
+    http: /mirror/foorepo
+    rsync: /foorepo
   coordinates:
     latitude: 35.9
     longitude: -78.8
