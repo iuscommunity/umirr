@@ -1,12 +1,4 @@
-protocols:
-  - http
-  - https
-  - rsync
-  - ftp
-architectures:
-  - x86_64
-  - i386
-  - source
+# Settings specific to the '/mirrorlist' resource.
 mirrorlist:
   show_title: True
   show_source: True
@@ -18,15 +10,26 @@ mirrorlist:
     coordinates:
       latitude: 29.42575
       longitude: -98.48630
+  protocols:
+    - http
+    - https
+    - rsync
+    - ftp
+  architectures:
+    - x86_64
+    - i386
+    - source
+  repos:
+    foorepo-centos7: /stable/CentOS/5/@arch@/
+    foorepo-centos7-debuginfo: /stable/CentOS/5/@arch@/debuginfo/
+    foorepo-centos7-source: /stable/CentOS/5/SRPMS/
+    foorepo-centos7-testing: /testing/CentOS/5/@arch@/
+    foorepo-centos7-testing-debuginfo: /testing/CentOS/5/@arch@/debuginfo/
+    foorepo-centos7-testing-source: /testing/CentOS/5/SRPMS/
+    foorepo-centos7-archive: /archive/CentOS/5/@arch@/
+    foorepo-centos7-archive-debuginfo: /archive/CentOS/5/@arch@/debuginfo/
+    foorepo-centos7-archive-source: /archive/CentOS/5/SRPMS/
+
+# Settings specific to the '/mirrors' resource.
 mirrors:
   hide_owners: True
-repos:
-  foorepo-centos7: /stable/CentOS/5/@arch@/
-  foorepo-centos7-debuginfo: /stable/CentOS/5/@arch@/debuginfo/
-  foorepo-centos7-source: /stable/CentOS/5/SRPMS/
-  foorepo-centos7-testing: /testing/CentOS/5/@arch@/
-  foorepo-centos7-testing-debuginfo: /testing/CentOS/5/@arch@/debuginfo/
-  foorepo-centos7-testing-source: /testing/CentOS/5/SRPMS/
-  foorepo-centos7-archive: /archive/CentOS/5/@arch@/
-  foorepo-centos7-archive-debuginfo: /archive/CentOS/5/@arch@/debuginfo/
-  foorepo-centos7-archive-source: /archive/CentOS/5/SRPMS/

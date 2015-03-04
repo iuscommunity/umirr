@@ -15,9 +15,11 @@ settings_resource = SettingsResource(settings)
 application.add_route('/settings', settings_resource)
 
 # expose mirror data
-mirrors_resource = MirrorsResource(settings, mirrors)
+mirrors_settings = settings.get('mirrors')
+mirrors_resource = MirrorsResource(mirrors_settings, mirrors)
 application.add_route('/mirrors', mirrors_resource)
 
 # generate the list of mirrors
-mirrorlist_resource = MirrorListResource(settings, mirrors)
+mirrorlist_settings = settings.get('mirrorlist')
+mirrorlist_resource = MirrorListResource(mirrorlist_settings, mirrors)
 application.add_route('/mirrorlist', mirrorlist_resource)

@@ -24,7 +24,7 @@ class MirrorsResource:
     ''' Expose mirror data. '''
     def __init__(self, settings, mirrors):
         self.mirrors = copy.deepcopy(mirrors)
-        if settings.get('mirrors').get('hide_owners'):
+        if settings.get('hide_owners'):
             for host in self.mirrors:
                 del self.mirrors[host]['owner']
                 del self.mirrors[host]['contact']
@@ -62,7 +62,7 @@ class MirrorListResource:
                req.get_header('X-Forwarded-For-Longitude'))
         if None in src:
             found = False
-            fallback = self.settings.get('mirrorlist').get('fallback')
+            fallback = self.settings.get('fallback')
             src = (fallback.get('coordinates').get('latitude'),
                    fallback.get('coordinates').get('longitude'))
             name = (fallback.get('city'),
@@ -130,14 +130,14 @@ class MirrorListResource:
     def on_get(self, req, resp):
         repo, arch, protocol = self.validate_query(req)
         output = []
-        if self.settings.get('mirrorlist').get('show_title'):
+        if self.settings.get('show_title'):
             output.extend(self.get_title_text())
         src, info = self.get_source_info(req)
-        if self.settings.get('mirrorlist').get('show_source'):
+        if self.settings.get('show_source'):
             output.extend(self.get_source_text(src, **info))
         distance_data = self.get_distance_data(protocol, src)
         urls = self.get_urls(distance_data, repo, arch, protocol)
-        if self.settings.get('mirrorlist').get('show_distances'):
+        if self.settings.get('show_distances'):
             output.extend(self.get_distance_text(distance_data))
 
         output.extend(urls)
