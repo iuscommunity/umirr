@@ -104,6 +104,7 @@ class MirrorListResource:
             padded = str(round(distance)).rjust(9)
             msg.append('# {} - {}'.format(padded, host))
         msg.append('#')
+        return msg
 
     def on_get(self, req, resp):
         repo, arch, protocol, src = self.validate(req)
