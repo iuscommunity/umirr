@@ -1,0 +1,14 @@
+[Unit]
+Description=umirr
+Requires=umirr.socket
+After=network.target
+
+[Service]
+User=nginx
+Group=nginx
+ExecStart=/usr/bin/gunicorn umirr
+ExecReload=/usr/bin/kill -s HUP $MAINPID
+ExecStop=/usr/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target

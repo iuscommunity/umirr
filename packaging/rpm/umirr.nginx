@@ -1,0 +1,36 @@
+# use the database with both IPv4 and IPv6 data
+geoip_city /usr/share/GeoIP/GeoLiteCityv6.dat;
+
+# trust X-Forwarded-For header from any source
+geoip_proxy 0.0.0.0/0;
+geoip_proxy ::/0;
+geoip_proxy_recursive on;
+
+upstream umirr {
+    server unix:/run/umirr.sock fail_timeout=0;
+}
+
+server {
+    # listen on both IPv4 and IPv6 interfaces
+    listen 80;
+    listen [::]:80;
+
+    # change this to your actual hostname
+    server_name _;
+
+    location / {
+        try_files $uri @proxy_umirr;
+    }
+    location @proxy_umirr {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-For-Country $geoip_city_country_code;
+        proxy_set_header X-Forwarded-For-Region $geoip_region;
+        proxy_set_header X-Forwarded-For-City $geoip_city;
+        proxy_set_header X-Forwarded-For-Latitude $geoip_latitude;
+        proxy_set_header X-Forwarded-For-Longitude $geoip_longitude;
+        proxy_redirect off;
+        proxy_pass http://umirr;
+    }
+}
