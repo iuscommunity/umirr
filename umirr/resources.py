@@ -108,7 +108,8 @@ class MirrorListResource:
             msg.append('# status: not in database, using fallback location')
         else:
             msg.append('# status: found in database')
-        msg.append('# coordinates: {}'.format(src))
+        msg.append('# latitude: {}'.format(src[0]))
+        msg.append('# longitude: {}'.format(src[1]))
         if city:
             msg.append('# city: {}'.format(city))
         if region:
