@@ -105,7 +105,9 @@ class MirrorListResource:
         city, region, country = name
         msg = ['# source ip: {}'.format(ip)]
         if not found:
-            msg.append('# ip not found in database, using fallback location')
+            msg.append('# status: not in database, using fallback location')
+        else:
+            msg.append('# status: found in database')
         msg.append('# coordinates: {}'.format(src))
         if city:
             msg.append('# city: {}'.format(city))
