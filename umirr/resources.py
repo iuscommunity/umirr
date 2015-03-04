@@ -78,12 +78,9 @@ class MirrorListResource:
         urls = []
         for distance, host in distance_data:
             data = self.mirrors.get(host)
-            resource = data.get('resources').get(protocol)
+            resource = data.get('resources').get(protocol).rstrip('/')
             path = self.settings.get('repos').get(repo)
-            url = '{}://{}/{}/{}/'.format(protocol,
-                                          host,
-                                          resource.strip('/'),
-                                          path.strip('/'))
+            url = '{}://{}{}{}'.format(protocol, host, resource, path)
             urls.append(url.replace('@arch@', arch))
         return urls
 
