@@ -66,7 +66,7 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 %if 0%{?with_gunicorn}
 install -Dpm 0644 %{SOURCE1} %{buildroot}%{_unitdir}/umirr.service
 install -Dpm 0644 %{SOURCE2} %{buildroot}%{_unitdir}/umirr.socket
-install -Dpm 0700 %{SOURCE3} %{buildroot}%{_tmpfilesdir}/umirr.conf
+install -Dpm 0644 %{SOURCE3} %{buildroot}%{_tmpfilesdir}/umirr.conf
 %endif
 
 %if 0%{?with_nginx}
