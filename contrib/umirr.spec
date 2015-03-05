@@ -27,6 +27,9 @@ Source4: umirr.nginx
 BuildRequires: python3-devel
 %if 0%{?with_gunicorn} || 0%{?with_nginx}
 BuildRequires: systemd
+Requires(post): systemd
+Requires(preun): systemd
+Requires(postun): systemd
 %endif
 
 Requires: python3-six
@@ -72,13 +75,24 @@ install -Dpm 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/nginx/conf.d/umirr.conf
 
 
 %if 0%{?with_gunicorn}
+
 %pre
 getent group %{umirr_group} > /dev/null || groupadd -r %{umirr_group}
 getent passwd %{umirr_user} > /dev/null || \
     useradd -r -d %{umirr_home} -g %{umirr_group} \
     -s /sbin/nologin -c "umirr mirror service" %{umirr_user}
 exit 0
-%endif
+
+%post
+%systemd_post umirr.service
+
+%preun
+%systemd_preun umirr.service
+
+%postun
+%systemd_postun umirr.service
+
+%endif # with_gunicorn
 
 
 %files
