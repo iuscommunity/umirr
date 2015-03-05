@@ -3,39 +3,38 @@
 # to preserve the indentation structure of the keys.  Syntax errors will
 # prevent the umirr service from starting.
 
-dfw.example.com:
+example.us:
   enabled: True
-  owner: George Washington
-  contact: admin@example.com
+  owner: First Last
+  contact: admin@example.us
   resources:
-    ftp: /
+    http: /foorepo
+    https: /foorepo
+    ftp: /foorepo
+    rsync: /foorepo
+  coordinates:
+    latitude: 32.776
+    longitude: -96.797
+
+example.de:
+  enabled: True
+  owner: First Last
+  contact: root@example.de
+  resources:
+    http: /foorepo
+    ftp: /foorepo
+    rsync: /foorepo
+  coordinates:
+    latitude: 50.110
+    longitude: 8.681
+
+foorepo.example.au:
+  enabled: True
+  owner: First Last
+  contact: webmaster@example.au
+  resources:
     http: /
     https: /
-    rsync: /foorepo
   coordinates:
-    latitude: 32.703
-    longitude: -96.819
-
-lon.example.com:
-  enabled: True
-  owner: Martha Washington
-  contact: admin@example.com
-  resources:
-    ftp: /
-    http: /
-    https: /
-    rsync: /foorepo
-  coordinates:
-    latitude: 51.51
-    longitude: -0.13
-
-doofenshmirtzevilincorporated.info:
-  enabled: True
-  owner: Heinz Doofenshmirtz
-  contact: drdoof@doofenshmirtzevilincorporated.info
-  resources:
-    http: /mirror/foorepo
-    rsync: /foorepo
-  coordinates:
-    latitude: 35.9
-    longitude: -78.8
+    latitude: -33.867
+    longitude: 151.207
