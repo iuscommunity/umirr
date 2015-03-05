@@ -88,6 +88,7 @@ exit 0
 %if 0%{?with_gunicorn}
 %{_unitdir}/umirr.service
 %{_unitdir}/umirr.socket
+%{_tmpfilesdir}/umirr.conf
 %endif
 %if 0%{?with_nginx}
 %{_sysconfdir}/nginx/conf.d/umirr.conf
