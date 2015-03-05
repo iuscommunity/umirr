@@ -2,7 +2,7 @@
 Description=umirr socket
 
 [Socket]
-ListenStream=/run/umirr.sock
+ListenStream=/run/umirr/socket
 SocketUser=umirr
 SocketGroup=umirr
 SocketMode=0660

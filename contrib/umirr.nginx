@@ -7,7 +7,7 @@ geoip_proxy ::/0;
 geoip_proxy_recursive on;
 
 upstream umirr {
-    server unix:/run/umirr.sock fail_timeout=0;
+    server unix:/run/umirr/socket fail_timeout=0;
 }
 
 server {

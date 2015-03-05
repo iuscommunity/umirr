@@ -1,5 +1,5 @@
 [Unit]
-Description=umirr
+Description=umirr mirror service
 Requires=umirr.socket
 After=network.target
 
