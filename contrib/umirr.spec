@@ -13,7 +13,7 @@
 
 
 Name: umirr
-Version: 0.1
+Version: 0.2
 Release: 1%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
