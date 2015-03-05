@@ -14,7 +14,7 @@
 
 Name: umirr
 Version: 0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
 URL: https://github.com/cgtx/umirr
@@ -114,5 +114,8 @@ exit 0
 
 
 %changelog
+* Thu Mar 05 2015 Carl George <carl.george@rackspace.com> - 0.2-2
+- Install example configs
+
 * Wed Mar 04 2015 Carl George <carl.george@rackspace.com> - 0.2-1
 - Initial package
