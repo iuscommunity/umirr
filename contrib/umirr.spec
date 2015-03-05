@@ -63,6 +63,9 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 %install
 %{__python3} setup.py install --optimize 1 --skip-build --root %{buildroot}
 
+install -Dpm 0644 example-configs/settings.yaml %{buildroot}%{_sysconfdir}/umirr/settings.yaml
+install -Dpm 0644 example-configs/mirrors.yaml %{buildroot}%{_sysconfdir}/umirr/mirrors.yaml
+
 %if 0%{?with_gunicorn}
 install -Dpm 0644 %{SOURCE1} %{buildroot}%{_unitdir}/umirr.service
 install -Dpm 0644 %{SOURCE2} %{buildroot}%{_unitdir}/umirr.socket
@@ -99,6 +102,7 @@ exit 0
 %doc README.md
 %{python3_sitelib}/umirr
 %{python3_sitelib}/umirr-%{version}-py?.?.egg-info
+%{_sysconfdir}/umirr
 %if 0%{?with_gunicorn}
 %{_unitdir}/umirr.service
 %{_unitdir}/umirr.socket
