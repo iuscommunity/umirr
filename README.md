@@ -1,8 +1,9 @@
 # umirr: micro mirror service
 
-Umirr is an application for generating a geographically relative list of
-mirrors.  The output is designed to be parsed by the mirrorlist parameter of
-yum repo configuration.  It is designed to be as simple as possible.
+Umirr is an application for generating a geographically-relative list of
+mirrors for Fedora or RHEL based distributions.  The output is designed to be
+parsed by yum, configured via the `mirrorlist` parameter in yum repo files.  It
+is designed to be as simple as possible.
 
 ## Why create a new mirror service?
 
