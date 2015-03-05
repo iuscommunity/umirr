@@ -110,5 +110,5 @@ exit 0
 
 
 %changelog
-* Wed Mar 04 2015 Carl George <carl.george@rackspace.com> - 0.1-1
+* Wed Mar 04 2015 Carl George <carl.george@rackspace.com> - 0.2-1
 - Initial package
