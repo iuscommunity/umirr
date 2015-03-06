@@ -14,7 +14,7 @@
 
 Name: umirr
 Version: 0.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
 URL: https://github.com/cgtx/umirr
@@ -116,6 +116,11 @@ exit 0
 
 
 %changelog
+* Fri Mar 06 2015 Carl George <carl.george@rackspace.com> - 0.2-3
+- Switch to building against Python 2
+- Use default ownership on the socket file
+- Mark config files as %%config(noreplace)
+
 * Thu Mar 05 2015 Carl George <carl.george@rackspace.com> - 0.2-2
 - Install example configs
 
