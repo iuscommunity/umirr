@@ -24,7 +24,7 @@ Source2: umirr.socket
 Source3: umirr.tmpfiles
 Source4: umirr.nginx
 
-BuildRequires: python3-devel
+BuildRequires: python-devel
 %if 0%{?with_gunicorn} || 0%{?with_nginx}
 BuildRequires: systemd
 Requires(post): systemd
@@ -32,11 +32,11 @@ Requires(preun): systemd
 Requires(postun): systemd
 %endif
 
-Requires: python3-six
-Requires: python3-falcon
-Requires: python3-PyYAML
+Requires: python-six
+Requires: python-falcon
+Requires: python-PyYAML
 %if 0%{?with_gunicorn}
-Requires: python3-gunicorn
+Requires: python-gunicorn
 %endif
 %if 0%{?with_nginx}
 Requires: nginx
@@ -57,11 +57,11 @@ easy to do in nginx.
 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
+CFLAGS="$RPM_OPT_FLAGS" %{__python2} setup.py build
 
 
 %install
-%{__python3} setup.py install --optimize 1 --skip-build --root %{buildroot}
+%{__python2} setup.py install --optimize 1 --skip-build --root %{buildroot}
 
 install -Dpm 0644 example-configs/settings.yaml %{buildroot}%{_sysconfdir}/umirr/settings.yaml
 install -Dpm 0644 example-configs/mirrors.yaml %{buildroot}%{_sysconfdir}/umirr/mirrors.yaml
@@ -100,8 +100,8 @@ exit 0
 
 %files
 %doc README.md
-%{python3_sitelib}/umirr
-%{python3_sitelib}/umirr-%{version}-py?.?.egg-info
+%{python2_sitelib}/umirr
+%{python2_sitelib}/umirr-%{version}-py?.?.egg-info
 %{_sysconfdir}/umirr
 %if 0%{?with_gunicorn}
 %{_unitdir}/umirr.service
