@@ -3,9 +3,6 @@ Description=umirr socket
 
 [Socket]
 ListenStream=/run/umirr/socket
-SocketUser=umirr
-SocketGroup=umirr
-SocketMode=0660
 
 [Install]
 WantedBy=sockets.target
