@@ -34,7 +34,7 @@ Requires(postun): systemd
 
 Requires: python-six
 Requires: python-falcon
-Requires: python-PyYAML
+Requires: PyYAML
 %if 0%{?with_gunicorn}
 Requires: python-gunicorn
 %endif
