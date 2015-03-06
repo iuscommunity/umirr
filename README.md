@@ -7,11 +7,12 @@ is designed to be as simple as possible.
 
 ## Why create a new mirror service?
 
-All of the existing solutions I could find seemed over complicated.  The only
-thing I wanted was an API that returns the mirrorlist text.  I didn't care
-about a pretty web portal or managing users.  All the existing solutions
-depended on a database backend.  Because of the simplicity of umirr, all
-configuration and data is contained in simple yaml files.
+I needed to deploy a mirrorlist solution, but I didn't like any of the existing
+options.  They all seemed overly complicated for my needs.  The only thing I
+wanted was an API cable of returning the mirrorlist text.  I didn't care about
+a pretty web portal or managing users.  I also didn't think the amount of data
+justified using a database.  All of umirr's configuration and data are read
+from simple yaml files.
 
 ## How does it work?
 
