@@ -103,13 +103,15 @@ exit 0
 %{python2_sitelib}/umirr
 %{python2_sitelib}/umirr-%{version}-py?.?.egg-info
 %{_sysconfdir}/umirr
+%config(noreplace) %{_sysconfdir}/umirr/settings.yaml
+%config(noreplace) %{_sysconfdir}/umirr/mirrors.yaml
 %if 0%{?with_gunicorn}
 %{_unitdir}/umirr.service
 %{_unitdir}/umirr.socket
 %{_tmpfilesdir}/umirr.conf
 %endif
 %if 0%{?with_nginx}
-%{_sysconfdir}/nginx/conf.d/umirr.conf
+%config(noreplace) %{_sysconfdir}/nginx/conf.d/umirr.conf
 %endif
 
 
