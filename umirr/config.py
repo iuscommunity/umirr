@@ -1,6 +1,12 @@
 import yaml
 
 
+try:
+    FileNotFoundError
+except NameError:
+    FileNotFoundError = IOError
+
+
 def load(paths):
     ''' Read first file in paths that exists and return parsed data. '''
     for path in paths:
