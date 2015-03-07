@@ -13,7 +13,7 @@
 
 
 Name: umirr
-Version: 0.3
+Version: 0.4
 Release: 1%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
@@ -116,6 +116,9 @@ exit 0
 
 
 %changelog
+* Sat Mar 07 2015 Carl George <carl.george@rackspace.com> - 0.4-1
+- Fix Python 2 compatibility
+
 * Fri Mar 06 2015 Carl George <carl.george@rackspace.com> - 0.3-1
 - Switch to building against Python 2
 - Use default ownership on the socket file
