@@ -119,8 +119,7 @@ class MirrorListResource:
     def get_distance_text(self, distance_data):
         msg = ['# approximate distances in miles:']
         for distance, host in distance_data:
-            padded = str(round(distance)).rjust(9)
-            msg.append('# {} - {}'.format(padded, host))
+            msg.append('# {:>10,.0f} - {}'.format(distance, host))
         msg.append('#')
         return msg
 
