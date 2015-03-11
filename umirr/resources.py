@@ -38,13 +38,19 @@ class MirrorListResource:
         valid_protocols = self.settings.get('protocols')
         repo = req.get_param('repo', required=True)
         if repo not in valid_repos:
-            raise falcon.HTTPInvalidParam('({})'.format(repo), 'repo')
+            err = '{} is not a valid repo'.format(repo)
+            status = falcon.HTTP_404
+            raise falcon.HTTPError(status, status, description=err)
         arch = req.get_param('arch', required=True)
         if arch not in valid_architectures:
-            raise falcon.HTTPInvalidParam('({})'.format(arch), 'arch')
+            err = '{} is not a valid arch'.format(arch)
+            status = falcon.HTTP_404
+            raise falcon.HTTPError(status, status, description=err)
         protocol = req.get_param('protocol') or valid_protocols[0]
         if protocol not in valid_protocols:
-            raise falcon.HTTPInvalidParam('({})'.format(protocol), 'protocol')
+            err = '{} is not a valid protocol'.format(protocol)
+            status = falcon.HTTP_404
+            raise falcon.HTTPError(status, status, description=err)
         return repo, arch, protocol
 
     def get_source_info(self, req):
