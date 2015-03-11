@@ -13,7 +13,7 @@
 
 
 Name: umirr
-Version: 0.4
+Version: 0.5
 Release: 1%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
@@ -116,6 +116,10 @@ exit 0
 
 
 %changelog
+* Wed Mar 11 2015 Carl George <carl.george@rackspace.com> - 0.5-1
+- Make compatible with older versions of falcon
+- Clean up distance text
+
 * Sat Mar 07 2015 Carl George <carl.george@rackspace.com> - 0.4-1
 - Fix Python 2 compatibility
 
