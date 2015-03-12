@@ -4,8 +4,8 @@ Requires=umirr.socket
 After=network.target
 
 [Service]
-User=nginx
-Group=nginx
+User=umirr
+Group=umirr
 ExecStart=/usr/bin/gunicorn umirr
 ExecReload=/usr/bin/kill -s HUP $MAINPID
 ExecStop=/usr/bin/kill -s TERM $MAINPID
