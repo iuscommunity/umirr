@@ -1,6 +1,6 @@
 [Unit]
-Description=umirr daemon
-Requires=umirr.socket
+Description=umirr daemon instance
+Requires=umirr@%i.socket
 After=network.target
 
 [Service]

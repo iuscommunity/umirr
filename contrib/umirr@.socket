@@ -1,0 +1,8 @@
+[Unit]
+Description=umirr daemon instance socket
+
+[Socket]
+ListenStream=/run/umirr/socket-%i
+
+[Install]
+WantedBy=sockets.target

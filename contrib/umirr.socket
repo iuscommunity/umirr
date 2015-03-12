@@ -1,5 +1,5 @@
 [Unit]
-Description=umirr socket
+Description=umirr daemon socket
 
 [Socket]
 ListenStream=/run/umirr/socket

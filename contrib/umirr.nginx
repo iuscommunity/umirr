@@ -7,7 +7,12 @@ geoip_proxy ::/0;
 geoip_proxy_recursive on;
 
 upstream umirr {
+    # socket for simple umirr.service
     server unix:/run/umirr/socket fail_timeout=0;
+
+    # sockets for instantiated umirr@1.service and umirr@2.service
+    #server unix:/run/umirr/socket-1 fail_timeout=0;
+    #server unix:/run/umirr/socket-2 fail_timeout=0;
 }
 
 server {
