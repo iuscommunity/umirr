@@ -11,8 +11,8 @@ upstream umirr {
     server unix:/run/umirr/socket fail_timeout=0;
 
     # sockets for instantiated umirr@1.service and umirr@2.service
-    #server unix:/run/umirr/socket-1 fail_timeout=0;
-    #server unix:/run/umirr/socket-2 fail_timeout=0;
+    #server unix:/run/umirr/1-socket fail_timeout=0;
+    #server unix:/run/umirr/2-socket fail_timeout=0;
 }
 
 server {
