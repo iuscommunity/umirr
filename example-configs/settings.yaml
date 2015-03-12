@@ -7,6 +7,11 @@
 main:
   enabled: True
   route: /
+  body: |
+    <html>
+    <h1>umirr</h1>
+    <h2>micro mirror service</h2>
+    </html>
 
 # Settings specific to MirrorsResource.
 mirrors:

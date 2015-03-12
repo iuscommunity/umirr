@@ -9,7 +9,7 @@ application = falcon.API()
 main_settings = settings.get('main')
 if main_settings.get('enabled'):
     main_route = main_settings.get('route')
-    main_resource = MainResource()
+    main_resource = MainResource(main_settings)
     application.add_route(main_route, main_resource)
 
 # expose mirror data

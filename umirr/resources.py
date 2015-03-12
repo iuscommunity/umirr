@@ -6,9 +6,13 @@ from .utils import calculate_distance
 
 
 class MainResource:
+    ''' Welcome page. '''
+    def __init__(self, settings):
+        self.settings = settings
+
     def on_get(self, req, resp):
         resp.content_type = 'text/html'
-        resp.body = '<html><h1>umirr</h1><h2>micro mirror service</h2></html>'
+        resp.body = self.settings.get('body')
 
 
 class MirrorsResource:
