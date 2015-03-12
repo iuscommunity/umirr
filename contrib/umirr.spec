@@ -19,10 +19,12 @@ Summary: Micro mirror service
 License: ASL 2.0
 URL: https://github.com/cgtx/umirr
 Source0: https://github.com/cgtx/umirr/archive/%{version}.tar.gz
-Source1: umirr.service
+Source1: umirr.tmpfiles
 Source2: umirr.socket
-Source3: umirr.tmpfiles
-Source4: umirr.nginx
+Source3: umirr.service
+Source4: umirr@.socket
+Source5: umirr@.service
+Source6: umirr.nginx
 
 BuildRequires: python-devel
 %if 0%{?with_gunicorn} || 0%{?with_nginx}
@@ -67,13 +69,15 @@ install -Dpm 0644 example-configs/settings.yaml %{buildroot}%{_sysconfdir}/umirr
 install -Dpm 0644 example-configs/mirrors.yaml %{buildroot}%{_sysconfdir}/umirr/mirrors.yaml
 
 %if 0%{?with_gunicorn}
-install -Dpm 0644 %{SOURCE1} %{buildroot}%{_unitdir}/umirr.service
+install -Dpm 0644 %{SOURCE1} %{buildroot}%{_tmpfilesdir}/umirr.conf
 install -Dpm 0644 %{SOURCE2} %{buildroot}%{_unitdir}/umirr.socket
-install -Dpm 0644 %{SOURCE3} %{buildroot}%{_tmpfilesdir}/umirr.conf
+install -Dpm 0644 %{SOURCE3} %{buildroot}%{_unitdir}/umirr.service
+install -Dpm 0644 %{SOURCE4} %{buildroot}%{_unitdir}/umirr@.socket
+install -Dpm 0644 %{SOURCE5} %{buildroot}%{_unitdir}/umirr@.service
 %endif
 
 %if 0%{?with_nginx}
-install -Dpm 0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/nginx/conf.d/umirr.conf
+install -Dpm 0644 %{SOURCE6} %{buildroot}%{_sysconfdir}/nginx/conf.d/umirr.conf
 %endif
 
 
@@ -106,9 +110,11 @@ exit 0
 %config(noreplace) %{_sysconfdir}/umirr/settings.yaml
 %config(noreplace) %{_sysconfdir}/umirr/mirrors.yaml
 %if 0%{?with_gunicorn}
-%{_unitdir}/umirr.service
-%{_unitdir}/umirr.socket
 %{_tmpfilesdir}/umirr.conf
+%{_unitdir}/umirr.socket
+%{_unitdir}/umirr.service
+%{_unitdir}/umirr@.socket
+%{_unitdir}/umirr@.service
 %endif
 %if 0%{?with_nginx}
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/umirr.conf
