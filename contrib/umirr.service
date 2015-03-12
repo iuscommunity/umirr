@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=umirr
 Group=umirr
-ExecStart=/usr/bin/gunicorn umirr
+ExecStart=/usr/bin/gunicorn --workers 4 umirr
 ExecReload=/usr/bin/kill -s HUP $MAINPID
 ExecStop=/usr/bin/kill -s TERM $MAINPID
 
