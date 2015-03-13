@@ -13,7 +13,7 @@
 
 
 Name: umirr
-Version: 0.5
+Version: 1.0
 Release: 1%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
@@ -117,6 +117,11 @@ exit 0
 
 
 %changelog
+* Fri Mar 13 2015 Carl George <carl.george@rackspace.com> - 1.0-1
+- Default to 4 gunicorn workers
+- Add systemd files for instantiated services
+- Allow customization of welcome page
+
 * Wed Mar 11 2015 Carl George <carl.george@rackspace.com> - 0.5-1
 - Make compatible with older versions of falcon
 - Clean up distance text
