@@ -11,6 +11,13 @@ main:
     <html>
     <h1>umirr</h1>
     <h2>micro mirror service</h2>
+    <p>available resources:</p>
+    <dl>
+    <dt><a href="/mirrors">/mirrors</a></dt>
+    <dd>mirror information in json format</dd>
+    <dt><a href="/mirrorlist">/mirrorlist</a></dt>
+    <dd>yum interface, requires "repo" and "arch" query parameters</dd>
+    </dl>
     </html>
 
 # Settings specific to MirrorsResource.
