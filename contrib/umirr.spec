@@ -98,6 +98,7 @@ exit 0
 
 %files
 %doc README.md
+%doc INSTALL.md
 %{python2_sitelib}/umirr
 %{python2_sitelib}/umirr-%{version}-py?.?.egg-info
 %{_sysconfdir}/umirr
