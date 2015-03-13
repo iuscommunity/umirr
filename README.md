@@ -31,19 +31,14 @@ Optional headers:
 * `X-Forwarded-For-Region`
 * `X-Forwarded-For-Country`
 
-## Python requirements
+## What are the requirements?
 
 * falcon
 * PyYAML
 * six
-
-## Deployment requirements
-
 * python WSGI HTTP server
 * web server capable of looking up geoip information of request source IPs
 
-## Recommended deployment
+## How do I install this?
 
-* Fedora
-* gunicorn
-* nginx
+Take a look at [INSTALL.md](INSTALL.md).
