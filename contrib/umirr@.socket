@@ -2,7 +2,7 @@
 Description=umirr daemon instance socket
 
 [Socket]
-ListenStream=/run/umirr/%i-socket
+ListenStream=/run/umirr/socket-%i
 
 [Install]
 WantedBy=sockets.target

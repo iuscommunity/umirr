@@ -4,10 +4,10 @@ Requires=umirr@%i.socket
 After=network.target
 
 [Service]
-PIDFile=/run/umirr/%i-pid
+PIDFile=/run/umirr/pid-%i
 User=umirr
 Group=umirr
-ExecStart=/usr/bin/gunicorn --pid /run/umirr/%i-pid --workers 4 umirr
+ExecStart=/usr/bin/gunicorn --pid /run/umirr/pid-%i --workers 4 umirr
 ExecReload=/usr/bin/kill -s HUP $MAINPID
 ExecStop=/usr/bin/kill -s TERM $MAINPID
 
