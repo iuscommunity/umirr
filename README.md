@@ -36,8 +36,8 @@ Optional headers:
 * falcon
 * PyYAML
 * six
-* python WSGI HTTP server
-* web server capable of looking up geoip information of request source IPs
+* python WSGI HTTP server (gunicorn recommended)
+* web server capable of looking up geoip information of request source IPs (nginx recommended)
 
 ## How do I install this?
 
