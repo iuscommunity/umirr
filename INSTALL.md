@@ -15,7 +15,8 @@ Please note, the EL7 repo contains a few additional RPMs besides umirr.  These a
     * stock version is missing `six.PY2`
     * [Red Hat bug](https://bugzilla.redhat.com/show_bug.cgi?id=1185409)
 * python-falcon
-    * request Fedora maintainer to create a branch for EPEL7
+    * need EPEL7 package
+    * [Red Hat bug](https://bugzilla.redhat.com/show_bug.cgi?id=1158971)
     * python-six bug must be resolved first
 * GeoIP
     * stock version is missing IPv6 data
