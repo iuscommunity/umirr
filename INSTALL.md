@@ -2,12 +2,12 @@
 
 ## Repo
 
-RPMs are available via [copr](https://copr.fedoraproject.org/coprs/cgtx/umirr/).
+RPMs are available via [copr](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/).
 
 Repo configuration:
-* [EL7](https://copr.fedoraproject.org/coprs/cgtx/umirr/repo/epel-7/cgtx-umirr-epel-7.repo)
-* [Fedora 21](https://copr.fedoraproject.org/coprs/cgtx/umirr/repo/fedora-21/cgtx-umirr-fedora-21.repo)
-* [Fedora 22](https://copr.fedoraproject.org/coprs/cgtx/umirr/repo/fedora-22/cgtx-umirr-fedora-22.repo)
+* [EL7](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/repo/epel-7/carlgeorge-umirr-epel-7.repo)
+* [Fedora 21](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/repo/fedora-21/carlgeorge-umirr-fedora-21.repo)
+* [Fedora 22](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/repo/fedora-22/carlgeorge-umirr-fedora-22.repo)
 
 Please note, the EL7 repo contains a few additional RPMs besides umirr.  These are currently necessary to run umirr, but should be removed at some point in the future.
 

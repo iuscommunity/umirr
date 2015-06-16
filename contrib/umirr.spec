@@ -17,8 +17,8 @@ Version: 1.0
 Release: 1%{?dist}
 Summary: Micro mirror service
 License: ASL 2.0
-URL: https://github.com/cgtx/umirr
-Source0: https://github.com/cgtx/umirr/archive/%{version}.tar.gz
+URL: https://github.com/carlgeorge/umirr
+Source0: https://github.com/carlgeorge/umirr/archive/%{version}.tar.gz
 
 BuildRequires: python-devel
 %if 0%{?with_gunicorn} || 0%{?with_nginx}
