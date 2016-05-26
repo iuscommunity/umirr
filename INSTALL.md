@@ -9,7 +9,7 @@ Repo configuration:
 * [Fedora 21](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/repo/fedora-21/carlgeorge-umirr-fedora-21.repo)
 * [Fedora 22](https://copr.fedoraproject.org/coprs/carlgeorge/umirr/repo/fedora-22/carlgeorge-umirr-fedora-22.repo)
 
-Please note, the EL7 repo contains a few additional RPMs besides umirr.  These are currently necessary to run umirr, but should be removed at some point in the future.
+Please note, the EL7 repo contains a few additional RPMs besides umirr that override stock RPMs.  These are currently necessary to run umirr on EL7, but should be removed at some point in the future.
 
 * python-falcon
     * need EPEL7 package
