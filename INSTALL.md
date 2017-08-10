@@ -6,8 +6,6 @@ RPMs are available via [copr](https://copr.fedoraproject.org/coprs/carlwgeorge/u
 
 Repo configuration:
 * [EL7](https://copr.fedoraproject.org/coprs/carlwgeorge/umirr/repo/epel-7/carlwgeorge-umirr-epel-7.repo)
-* [Fedora 21](https://copr.fedoraproject.org/coprs/carlwgeorge/umirr/repo/fedora-21/carlwgeorge-umirr-fedora-21.repo)
-* [Fedora 22](https://copr.fedoraproject.org/coprs/carlwgeorge/umirr/repo/fedora-22/carlwgeorge-umirr-fedora-22.repo)
 
 Please note, the EL7 repo contains a few additional RPMs besides umirr that override stock RPMs.  These are currently necessary to run umirr on EL7, but should be removed at some point in the future.
 
