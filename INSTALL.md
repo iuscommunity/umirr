@@ -7,15 +7,6 @@ RPMs are available via [copr](https://copr.fedoraproject.org/coprs/carlwgeorge/u
 Repo configuration:
 * [EL7](https://copr.fedoraproject.org/coprs/carlwgeorge/umirr/repo/epel-7/carlwgeorge-umirr-epel-7.repo)
 
-Please note, the EL7 repo contains a few additional RPMs besides umirr that override stock RPMs.  These are currently necessary to run umirr on EL7, but should be removed at some point in the future.
-
-* python-falcon
-    * need EPEL7 package
-    * [Red Hat bug](https://bugzilla.redhat.com/show_bug.cgi?id=1158971)
-* GeoIP
-    * stock version is missing IPv6 data
-    * [Red Hat bug](https://bugzilla.redhat.com/show_bug.cgi?id=1201857)
-
 The RPM for umirr has gunicorn and nginx as dependencies.  I'm sure that other WSGI servers or webservers can work, but I have only used these so far.  If you want to rebuild the RPM without those dependencies, modify the [spec file](contrib/umirr.spec) and change the macros `with_nginx` and/or `with_gunicorn` from 1 to 0.
 
 ## Configuration
